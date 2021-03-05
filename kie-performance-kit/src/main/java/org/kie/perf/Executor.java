@@ -111,7 +111,7 @@ public class Executor {
                             method.setAccessible(true);
                             return (Long) method.invoke(os);
                         } catch (Exception e) {
-
+                            log.warn("Unable to get value", e);
                         }
                         return -1L;
                     }
