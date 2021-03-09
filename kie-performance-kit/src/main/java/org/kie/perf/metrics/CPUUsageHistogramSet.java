@@ -68,7 +68,7 @@ public class CPUUsageHistogramSet implements MetricSet {
     public Map<String, Metric> getMetrics() {
         final Map<String, Metric> metrics = new HashMap<String, Metric>();
 
-        if (getProcessCpuLoad != null && operatingSystemMXBean != null) {
+        if (operatingSystemMXBean.getProcessCpuLoad() != 0. && operatingSystemMXBean != null) {
             metrics.put(MetricRegistry.name(scenario, "cpu.usage"), cpuUsageHistogram);
         }
 
