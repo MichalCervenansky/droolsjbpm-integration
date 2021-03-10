@@ -192,7 +192,9 @@ public class PerfRepoReporter extends ScheduledReporter {
             if (test == null) {
 
                 List<Metric> metrics = new ArrayList<Metric>();
+                System.out.println("!!!metricLabels!!!");
                 for (String ml : metricLabels) {
+                    System.out.println(ml);
                     Metric m = new Metric();
                     m.setName(getMeterName(ml));
                     m.setDescription("TBD");
@@ -203,6 +205,7 @@ public class PerfRepoReporter extends ScheduledReporter {
                     }
                     metrics.add(m);
                 }
+                System.out.println("!!!ENDmetricLabels!!!");
 
                 test = new Test();
                 test.setDescription("Automatically created test definition by PerfRepoReporter.");
