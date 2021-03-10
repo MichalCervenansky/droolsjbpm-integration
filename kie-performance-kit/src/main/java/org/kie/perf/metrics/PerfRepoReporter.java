@@ -194,7 +194,7 @@ public class PerfRepoReporter extends ScheduledReporter {
             if (test == null) {
 
                 List<Metric> metrics = new ArrayList<Metric>();
-                protected static Logger logger = LoggerFactory.getLogger(PerfRepoReporter.class);
+                Logger logger = LoggerFactory.getLogger(PerfRepoReporter.class);
                 logger.info("!!!metricLabels!!!");
                 for (String ml : metricLabels) {
                     logger.info(ml);
