@@ -28,6 +28,8 @@ import com.codahale.metrics.MetricRegistry;
 import com.codahale.metrics.ScheduledReporter;
 import com.codahale.metrics.Snapshot;
 import com.codahale.metrics.Timer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class PerfRepoReporter extends ScheduledReporter {
 
@@ -192,9 +194,10 @@ public class PerfRepoReporter extends ScheduledReporter {
             if (test == null) {
 
                 List<Metric> metrics = new ArrayList<Metric>();
-                System.out.println("!!!metricLabels!!!");
+                protected static Logger logger = LoggerFactory.getLogger(PerfRepoReporter.class);
+                logger.info("!!!metricLabels!!!");
                 for (String ml : metricLabels) {
-                    System.out.println(ml);
+                    logger.info(ml);
                     Metric m = new Metric();
                     m.setName(getMeterName(ml));
                     m.setDescription("TBD");
@@ -205,7 +208,7 @@ public class PerfRepoReporter extends ScheduledReporter {
                     }
                     metrics.add(m);
                 }
-                System.out.println("!!!ENDmetricLabels!!!");
+                logger.info("!!!ENDmetricLabels!!!");
 
                 test = new Test();
                 test.setDescription("Automatically created test definition by PerfRepoReporter.");
